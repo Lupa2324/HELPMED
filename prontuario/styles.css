@@ -1,0 +1,152 @@
+:root {
+  --ink: #1b2422;
+  --muted: #5c6b66;
+  --line: #d7ddd6;
+  --paper: #f3f1ea;
+  --card: #fffcf7;
+  --teal: #0f5c56;
+  --teal-2: #14756d;
+  --chip: #e7efe9;
+  --warn: #6d3414;
+  --warn-bg: #f8ead7;
+  --shadow: 0 1px 0 rgba(27, 36, 34, 0.04);
+  font-family: "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); }
+body { min-height: 100vh; }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-end;
+  padding: 16px 16px 8px;
+  background: #14302e;
+  color: #f4f7f4;
+}
+.kicker { margin: 0; letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; opacity: 0.75; }
+h1 { margin: 2px 0 0; font-size: 1.35rem; font-weight: 650; }
+.ctx { display: flex; background: rgba(255,255,255,0.08); border-radius: 999px; padding: 3px; }
+.ctx-btn {
+  border: 0; background: transparent; color: #e7f2ef; border-radius: 999px;
+  padding: 8px 12px; font: inherit; font-size: 14px; cursor: pointer;
+}
+.ctx-btn.on { background: #f4f1ea; color: #14302e; font-weight: 650; }
+
+.disclaimer {
+  margin: 0;
+  padding: 10px 16px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+
+main {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (min-width: 960px) {
+  main { grid-template-columns: 320px 1fr; }
+  .draft-panel { grid-column: 1 / -1; }
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 6px; }
+input[type="search"], textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+}
+textarea { line-height: 1.4; resize: vertical; min-height: 220px; }
+input:focus, textarea:focus { outline: 2px solid #9fd0c8; border-color: var(--teal); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chip {
+  border: 1px solid var(--line);
+  background: var(--chip);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.chip.on { background: var(--teal); color: white; border-color: var(--teal); }
+.meta { color: var(--muted); font-size: 12.5px; margin: 8px 0 0; }
+
+.results { list-style: none; margin: 8px 0 0; padding: 0; max-height: 48vh; overflow: auto; }
+.result {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 10px 4px;
+  font: inherit;
+  cursor: pointer;
+  display: block;
+}
+.result strong { display: block; font-size: 15px; }
+.result small { color: var(--muted); }
+.result.on { background: #eef6f3; border-radius: 8px; }
+
+.empty { color: var(--muted); margin: 8px 0; }
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 3px 8px;
+  margin-right: 6px;
+  background: #e7efe9;
+  color: #20443f;
+}
+.tag.verm { background: #f3e4e1; color: #6d2c24; }
+.tag.prompt { background: #e6e8f4; color: #2a3168; }
+h2 { font-size: 1.2rem; margin: 8px 0; }
+h3 { font-size: 0.95rem; margin: 14px 0 6px; }
+.block { font-size: 14.5px; line-height: 1.4; margin: 0 0 8px; white-space: pre-wrap; }
+.rx {
+  border-top: 1px solid var(--line);
+  padding: 8px 0;
+}
+.rx b { font-size: 14.5px; }
+.rx p { margin: 3px 0; font-size: 14px; }
+.remume { color: #20443f; font-size: 13px; }
+.warnline { color: var(--warn); font-size: 13px; }
+
+.draft-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+button.primary, .actions button {
+  font: inherit;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--teal);
+  background: white;
+  color: var(--teal);
+  cursor: pointer;
+  min-height: 44px;
+}
+button.primary { background: var(--teal); color: white; }
+.actions button:active { transform: translateY(1px); }
+.toast { min-height: 1.2em; margin: 8px 0 0; font-size: 13.5px; color: var(--teal); }
+.page-ref { font-size: 13px; color: var(--muted); }
